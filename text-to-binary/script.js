@@ -8,3 +8,11 @@ document.getElementById("convert").addEventListener("click", function () {
     }).join(" ");
     document.getElementById("result").innerText = result;
 });
+document.getElementById("inputValueCopyBtn").addEventListener("click", function () {
+    document.getElementById("input").select();
+    navigator.clipboard.writeText(document.getElementById("input").value);
+});
+document.getElementById("resultValueCopyBtn").addEventListener("click", function () {
+    document.getElementById("result").select();
+    navigator.clipboard.writeText(document.getElementById("result").value);
+});

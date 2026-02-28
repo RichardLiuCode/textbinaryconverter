@@ -22,7 +22,7 @@ body {
 
 .title {
     font-family: arial;
-    font-size: 40px;
+    font-size: 45px;
     color: green;
     text-align: center;
     user-select: none;
@@ -39,8 +39,11 @@ textarea:focus {
 
 #input,
 #result {
-    width: calc(50% - 40px);
-    height: calc(50% - 180px);
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    width: 100%;
+    height: calc(100% - 30px);
     resize: none;
     font-family: arial;
     font-size: 20px;
@@ -49,10 +52,18 @@ textarea:focus {
     border-color: green;
 }
 
+.InputOutputWrapper {
+    margin: 0 auto;
+    width: calc(50% - 40px);
+    height: calc(50% - 180px);
+    position: relative;
+    border: none;
+}
+
 .convertButtonWrapper {
     width: calc(50% - 40px);
     margin: 0 auto;
-    margin-top: 8px;
+    margin-top: 18px;
     margin-bottom: 10px;
     display: flex;
     justify-content: flex-start;
@@ -76,4 +87,26 @@ textarea:focus {
 
 #convert:active {
     background-color: rgb(129, 189, 105);
+}
+
+.copyButtons {
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 18px;
+    cursor: pointer;
+    border-bottom: none;
+    border-color: green;
+    color: white;
+    background-color: rgb(66, 180, 66);
+}
+
+.copyButtons:hover {
+    background-color: rgb(85, 192, 85);
+}
+
+.copyButtons:active {
+    background-color: rgb(94, 175, 94);
 }

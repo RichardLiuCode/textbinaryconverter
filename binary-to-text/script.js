@@ -30,9 +30,26 @@ window.addEventListener("load", function () {
         document.getElementById("result").select();
         navigator.clipboard.writeText(document.getElementById("result").value);
     });
-    document.getElementById("input").addEventListener("input", function () {
+    document.getElementById("input").addEventListener("input", function (e) {
+        if ((e.data) && (e.data != "0") && (e.data != "1") && (e.data != " ")) {
+            this.value = this.value.replace(e.data, "");
+        }
         localStorageData.inputOriginalBinarys = this.value;
         localStorage.setItem("Project:textbinaryconverter", JSON.stringify(localStorageData));
+    });
+    document.getElementById("input").addEventListener("paste", function (e) {
+        e.preventDefault();
+        const clipboardValue = e.clipboardData.getData("text");
+        if (clipboardValue && (typeof clipboardValue == "string")) {
+            const clipboardValueArray = clipboardValue.split("");
+            document.getElementById("input").value = clipboardValueArray.map(function (text) {
+                if ((text == " ") || (text == "0") || (text == "1")) {
+                    return text;
+                } else {
+                    return "";
+                }
+            }).join("");
+        }
     });
 });
 
